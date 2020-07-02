@@ -1,9 +1,9 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\Model\User;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +17,29 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    static $count = 0;
+
+    $name = [
+        'Admin',
+        'Ong Van Phat',
+    ];
+    $email = [
+        'admin@gmail.com',
+        'ongvanphat124@gmail.com',
+    ];
+    $username = [
+        'admin',
+        'ovpdng124',
+    ];
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'full_name' => $name[$count],
+        'username' => $username[$count],
+        'email' => $email[$count],
+        'password' => bcrypt('123123'),
+        'phone_number' => $faker->phoneNumber,
+        'verify_token' => base64_encode($email[$count]) . '.' . base64_encode(now()),
+        'verify_at' => now(),
+        'role_id' => ++$count,
     ];
 });
