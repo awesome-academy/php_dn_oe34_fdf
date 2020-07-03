@@ -7,7 +7,9 @@
 /.idea/*
 /public/js
 /public/css
+/public/fonts/*
 /public/images/*
+/public/template/*
 package-lock.json
 _ide_helper.php
 .env
