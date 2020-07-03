@@ -10,7 +10,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="btn btn-info"><i class="fa fa-sign-out-alt"></i>{{trans('messages.homepage')}}</a>
+            <a href="{{route('homepage')}}" class="btn btn-info"><i class="fa fa-sign-out-alt"></i>{{trans('messages.homepage')}}</a>
         </li>
     </ul>
 </nav>
