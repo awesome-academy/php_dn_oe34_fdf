@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'User'], function () {
+    Route::get('/', 'HomeController@index')->name('homepage');
+});
+
+Route::group(['namespace' => 'Auth'], function () {
+    Route::get('/admin', 'LoginController@showAdminLoginForm')->name('admin.login-form');
+    Route::get('/login', 'LoginController@showUserLoginForm')->name('user.login-form');
+    Route::post('/login', 'LoginController@login')->name('login');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin', 'namespace' => 'Admin'], function () {
+        Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
+    });
 });

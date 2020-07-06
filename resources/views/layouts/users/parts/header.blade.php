@@ -27,12 +27,12 @@
                             <span class="fa fa-unlock-alt" aria-hidden="true"></span>{{trans('messages.profile')}} </a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
+                        <a href="{{route('logout')}}">
                             <span class="fa fa-pen-square" aria-hidden="true"></span>{{trans('messages.logout')}} </a>
                     </li>
                 @else
                     <li>
-                        <a href="#">
+                        <a href="{{route('user.login-form')}}">
                             <span class="fa fa-unlock-alt" aria-hidden="true"></span>{{trans('messages.login')}} </a>
                     </li>
                     <li>
@@ -49,7 +49,7 @@
             <!-- search -->
             <div class="agileits_search">
                 <form action="#" method="post">
-                    <input name="Search" type="search" placeholder="How can we help you today?" required="">
+                    <input name="Search" type="search" placeholder="{{trans('messages.search_placeholder')}}" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <span class="fa fa-search" aria-hidden="true"> </span>
                     </button>

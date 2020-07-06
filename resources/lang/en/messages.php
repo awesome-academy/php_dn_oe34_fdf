@@ -33,4 +33,8 @@ return [
     'drink' => 'Drink',
     'customer_review' => "Customer reviews",
     'new' => 'New',
+    'admin_login' => 'Login your administrator accounts',
+    'forgot_password' => 'I forgot my password',
+    'password' => 'Password',
+    'search_placeholder' => 'How can we help you today?'
 ];
