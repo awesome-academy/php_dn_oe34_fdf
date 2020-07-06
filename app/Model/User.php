@@ -27,6 +27,10 @@ class User extends Authenticatable
         'verify_token',
     ];
 
+    protected $attributes = [
+        'role_id' => 2,
+    ];
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -55,5 +59,17 @@ class User extends Authenticatable
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        return $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function setEmailAttribute($email)
+    {
+        $this->attributes['email'] = $email;
+
+        return $this->attributes['verify_token'] = base64_encode($email) . '.' . base64_encode(now());
     }
 }

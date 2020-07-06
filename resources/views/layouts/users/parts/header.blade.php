@@ -36,7 +36,7 @@
                             <span class="fa fa-unlock-alt" aria-hidden="true"></span>{{trans('messages.login')}} </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('register-form')}}">
                             <span class="fa fa-pen-square" aria-hidden="true"></span>{{trans('messages.register')}} </a>
                     </li>
                 @endauth

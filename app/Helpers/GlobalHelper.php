@@ -11,4 +11,9 @@ class GlobalHelper
     {
         return Auth::user()->role_id === Role::$roles['Admin'];
     }
+
+    public static function checkExpiredDate($dateTime, $dayLimit)
+    {
+        return now()->diffInDays($dateTime) > $dayLimit;
+    }
 }

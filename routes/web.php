@@ -20,6 +20,9 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/login', 'LoginController@showUserLoginForm')->name('user.login-form');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::get('/register', 'RegisterController@showRegisterForm')->name('register-form');
+    Route::post('/register', 'RegisterController@register')->name('register');
+    Route::get('/verify', 'RegisterController@verifyAccount')->name('verify_accounts');
 });
 
 Route::group(['middleware' => 'auth'], function () {

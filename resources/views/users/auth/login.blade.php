@@ -12,6 +12,11 @@
                         @endforeach
                     </div>
                 @endif
+                @if(Session::has('success'))
+                        <div class="alert alert-success text-center" role="alert">
+                            {{Session::get('success')}}
+                        </div>
+                @endif
                 <form action="{{route('login')}}" method="post">
                     @csrf
                     <div class="form-group row">
