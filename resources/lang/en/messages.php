@@ -36,5 +36,16 @@ return [
     'admin_login' => 'Login your administrator accounts',
     'forgot_password' => 'I forgot my password',
     'password' => 'Password',
-    'search_placeholder' => 'How can we help you today?'
+    'password_confirm' => 'Re-Password',
+    'search_placeholder' => 'How can we help you today?',
+    'full_name' => 'Full Name',
+    'username' => 'Username',
+    'phone_number' => 'Phone Number',
+    'register_success' => 'Register Success!',
+    'register_failed' => 'Register Failed!',
+    'send_mail_register_failed' => 'Register Success. But we had a problem about send verify mail. Please try again later after login.',
+    'expired_send_mail' => 'Link expired, check mail again to receive new link',
+    'expired_not_send_mail' => 'Link expired, resend email from your profile',
+    'verify_failed' => 'Had a problem to verifying. Try again later!',
+    'errors' => 'Something wrong! Try again later.',
 ];
