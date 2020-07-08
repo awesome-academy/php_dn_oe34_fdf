@@ -46,5 +46,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/edit/{id}', 'UserController@update')->name('user.update');
             Route::delete('/delete/{id}', 'UserController@destroy')->name('user.delete');
         });
+
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', 'CategoryController@listCategories')->name('category.list');
+            Route::get('/create', 'CategoryController@create')->name('category.create-form');
+            Route::post('/create', 'CategoryController@store')->name('category.create');
+            Route::get('/edit/{id}', 'CategoryController@edit')->name('category.edit');
+            Route::put('/edit/{id}', 'CategoryController@update')->name('category.update');
+            Route::delete('/delete/{id}', 'CategoryController@destroy')->name('category.delete');
+        });
     });
 });
