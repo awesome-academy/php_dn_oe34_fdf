@@ -8,6 +8,7 @@
     <title>{{trans('messages.dashboard')}}</title>
 
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/admin/admin.css')}}">
     <script src="{{mix('js/app.js')}}"></script>
 </head>
 <body class="hold-transition sidebar-mini">

@@ -16,13 +16,22 @@ Route::group(['namespace' => 'User'], function () {
 });
 
 Route::group(['namespace' => 'Auth'], function () {
-    Route::get('/admin', 'LoginController@showAdminLoginForm')->name('admin.login-form');
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', 'LoginController@showAdminLoginForm')->name('admin.login-form');
+        Route::get('/forgot-password', 'ResetPasswordController@showForgotPasswordForm')->name('admin.forgot_password-form');
+        Route::get('/reset-password', 'ResetPasswordController@showResetPasswordForm')->name('admin.reset_password-form');
+    });
+
     Route::get('/login', 'LoginController@showUserLoginForm')->name('user.login-form');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::get('/logout', 'LoginController@logout')->name('logout');
     Route::get('/register', 'RegisterController@showRegisterForm')->name('register-form');
     Route::post('/register', 'RegisterController@register')->name('register');
     Route::get('/verify', 'RegisterController@verifyAccount')->name('verify_accounts');
+    Route::get('/forgot-password', 'ResetPasswordController@showForgotPasswordForm')->name('user.forgot_password-form');
+    Route::post('/forgot-password', 'ResetPasswordController@sendForgotPasswordMail')->name('forgot_password');
+    Route::get('/reset-password', 'ResetPasswordController@showResetPasswordForm')->name('user.reset_password-form');
+    Route::post('/reset-password', 'ResetPasswordController@resetPassword')->name('reset_password');
 });
 
 Route::group(['middleware' => 'auth'], function () {

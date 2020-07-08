@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Mail\ForgotPasswordMail;
 use App\Mail\VerifyMail;
 use App\Model\User;
 use App\Repositories\BaseRepository;
@@ -38,13 +39,19 @@ class AuthService
         }
     }
 
-    public function sendMail($email)
+    public function sendMail($email, $uri = null)
     {
         $user = $this->repository->findObject(User::all(), 'email', $email);
 
         if (!empty($user)) {
+            if (strpos($uri, 'forgot-password')) {
+                $mailable = new ForgotPasswordMail($user);
+            } else {
+                $mailable = new VerifyMail($user);
+            }
+
             try {
-                Mail::to($user->email)->send(new VerifyMail($user));
+                Mail::to($user->email)->send($mailable);
 
                 return true;
             } catch (Exception $exception) {
@@ -68,7 +75,7 @@ class AuthService
 
     public function verifyAccount($email)
     {
-        $user = $this->repository->findObject(User::all(),'email', $email);
+        $user = $this->repository->findObject(User::all(), 'email', $email);
 
         if (!empty($user)) {
             try {
@@ -89,7 +96,7 @@ class AuthService
 
     public function updateNewToken($email)
     {
-        $user = $this->repository->findObject(User::all(),'email', $email);
+        $user = $this->repository->findObject(User::all(), 'email', $email);
 
         if (!empty($user)) {
             try {
@@ -108,5 +115,26 @@ class AuthService
         }
 
         return trans('messages.errors');
+    }
+
+    public function resetPassword($params)
+    {
+        $email = $this->decodeToken($params['token'])[0];
+
+        $user = $this->repository->findObject(User::all(), 'email', $email);
+
+        if (!empty($user)) {
+            try {
+                $user->update($params);
+
+                return true;
+            } catch (Exception $e) {
+                Log::error($e->getMessage());
+
+                return false;
+            }
+        }
+
+        return false;
     }
 }
