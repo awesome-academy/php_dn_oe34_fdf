@@ -37,5 +37,14 @@ Route::group(['namespace' => 'Auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin', 'namespace' => 'Admin'], function () {
         Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
+
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('/', 'UserController@listUsers')->name('user.list');
+            Route::get('/create', 'UserController@create')->name('user.create-form');
+            Route::post('/create', 'UserController@store')->name('user.create');
+            Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
+            Route::put('/edit/{id}', 'UserController@update')->name('user.update');
+            Route::delete('/delete/{id}', 'UserController@destroy')->name('user.delete');
+        });
     });
 });

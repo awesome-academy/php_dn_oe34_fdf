@@ -72,4 +72,9 @@ class User extends Authenticatable
 
         return $this->attributes['verify_token'] = base64_encode($email) . '.' . base64_encode(now());
     }
+
+    public function scopeSearch($query, $search, $searchKey)
+    {
+        return $query->where($searchKey, 'like', "%$search%");
+    }
 }
