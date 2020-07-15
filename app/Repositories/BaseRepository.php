@@ -23,15 +23,19 @@ class BaseRepository
 
     public function update($object, $params)
     {
-        try {
-            $object->update($params);
+        if (!empty($object)) {
+            try {
+                $object->update($params);
 
-            return true;
-        } catch (Exception $e) {
-            Log::error($e->getMessage());
+                return true;
+            } catch (Exception $e) {
+                Log::error($e->getMessage());
 
-            return false;
+                return false;
+            }
         }
+
+        return false;
     }
 
     public function store($query, $params)
@@ -49,14 +53,18 @@ class BaseRepository
 
     public function destroy($object)
     {
-        try {
-            $object->delete();
+        if (!empty($object)) {
+            try {
+                $object->delete();
 
-            return true;
-        } catch (Exception $e) {
-            Log::error($e->getMessage());
+                return true;
+            } catch (Exception $e) {
+                Log::error($e->getMessage());
 
-            return false;
+                return false;
+            }
         }
+
+        return false;
     }
 }
