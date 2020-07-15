@@ -10,6 +10,7 @@
 /public/fonts/*
 /public/images/*
 /public/template/*
+/tests/coverage/*
 package-lock.json
 _ide_helper.php
 .env
