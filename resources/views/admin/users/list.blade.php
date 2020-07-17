@@ -11,7 +11,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" value="{{request()->input('search')}}">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-info" type="submit"><i class="fas fa-search"></i>
+                                    <button class="btn btn-outline-info" type="submit" id="submit-search"><i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-warning" href="{{route('user.edit', $item->id)}}">{{trans('messages.edit')}}</a>
-                                                <a class="btn btn-danger delete-user" data-csrf-token="{{csrf_token()}}" data-user-id="{{$item->id}}" href="#">{{trans('messages.delete')}}</a>
+                                                <a class="btn btn-danger delete-user" id="{{$item->username}}" data-csrf-token="{{csrf_token()}}" data-user-id="{{$item->id}}" href="#">{{trans('messages.delete')}}</a>
                                             </div>
                                         </td>
                                     </tr>

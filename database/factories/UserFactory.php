@@ -36,7 +36,7 @@ $factory->define(User::class, function (Faker $faker) {
         'full_name' => $name[$count],
         'username' => $username[$count],
         'email' => $email[$count],
-        'password' => bcrypt('123123'),
+        'password' => 123123,
         'phone_number' => $faker->phoneNumber,
         'verify_token' => base64_encode($email[$count]) . '.' . base64_encode(now()),
         'verify_at' => now(),
