@@ -82,4 +82,13 @@ return [
     'parent_id' => 'Parent ID',
     'id' => "ID",
     'none' => 'None',
+    'create_new_product' => 'Create a new product',
+    'product_list' => "Products list",
+    'category' => 'Category',
+    'image' => 'Image',
+    'no_image' => 'No image',
+    'avatar' => 'Avatar',
+    'thumbnail' => 'Thumbnail',
+    'update_image_failed' => 'Had a problem when updating images!',
+    'store_image_failed' => 'Had a problem when storing images!',
 ];

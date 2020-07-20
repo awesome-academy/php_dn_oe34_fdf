@@ -44,4 +44,15 @@ class Product extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function scopeSearch($query, $search, $searchKey)
+    {
+        if ($searchKey === 'category') {
+            return $query->whereHas('category', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            });
+        }
+
+        return $query->where($searchKey, 'like', "%$search%");
+    }
 }

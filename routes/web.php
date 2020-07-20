@@ -55,5 +55,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/edit/{id}', 'CategoryController@update')->name('category.update');
             Route::delete('/delete/{id}', 'CategoryController@destroy')->name('category.delete');
         });
+
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('/', 'ProductController@listProducts')->name('product.list');
+            Route::get('/create', 'ProductController@create')->name('product.create-form');
+            Route::post('/create', 'ProductController@store')->name('product.create');
+            Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
+            Route::put('/edit/{id}', 'ProductController@update')->name('product.update');
+            Route::delete('/delete/{id}', 'ProductController@destroy')->name('product.delete');
+        });
     });
 });
