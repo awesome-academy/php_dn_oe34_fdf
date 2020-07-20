@@ -74,4 +74,12 @@ return [
     'delete_failed' => 'Delete failed!',
     'information' => 'Information',
     'no_item_list' => 'There are no item to list',
+    'create_success' => 'Create success',
+    'create_failed' => 'Create failed!',
+    'create_new_category' => 'Create a new category',
+    'category_list' => 'Categories List',
+    'name' => 'Name',
+    'parent_id' => 'Parent ID',
+    'id' => "ID",
+    'none' => 'None',
 ];

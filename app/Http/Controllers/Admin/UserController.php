@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function listUsers(Request $request)
     {
-        $limits = $request->get('limits', 10);
+        $limits = $request->get('limits', config('custom.paginate.limits'));
         $search = $request->get('search', '');
         $searchKey = $request->get('search_key', '');
 
