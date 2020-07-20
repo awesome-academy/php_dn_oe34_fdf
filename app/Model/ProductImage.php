@@ -12,6 +12,16 @@ class ProductImage extends Model
         'product_id',
     ];
 
+    public static $types = [
+        'Avatar' => 0,
+        'Thumbnail' => 1,
+    ];
+
+    public static $paths = [
+        'Avatar'    => 'images/avatars/',
+        'Thumbnail' => 'images/thumbnails/',
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);
