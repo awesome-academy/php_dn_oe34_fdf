@@ -46,18 +46,18 @@
                         <h1 class="text-center">{{trans('messages.product_list')}}</h1>
                         <div class="row">
                             <table class="table-striped table table-responsive-xl">
-                                <tr>
+                                <tr class="text-center">
                                     <th>#</th>
-                                    <th>{{trans('messages.name')}}</th>
+                                    <th class="width-35 text-left">{{trans('messages.name')}}</th>
                                     <th>{{trans('messages.price')}}</th>
                                     <th>{{trans('messages.category')}}</th>
                                     <th>{{trans('messages.image')}}</th>
-                                    <th class="text-center">{{trans('messages.action')}}</th>
+                                    <th>{{trans('messages.action')}}</th>
                                 </tr>
                                 @foreach($products as $key => $item)
-                                    <tr>
+                                    <tr class="text-center">
                                         <td>{{$key + $products->firstItem()}}</td>
-                                        <td width="50%">{{$item->name}}</td>
+                                        <td class="text-left">{{$item->name}}</td>
                                         <td>{{number_format($item->price)}} $</td>
                                         <td>{{$item->category->name}}</td>
                                         <td>

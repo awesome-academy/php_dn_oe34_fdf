@@ -113,4 +113,19 @@ class ProductRepository extends BaseRepository
             return false;
         }
     }
+
+    public function getProductByOrders($orderId)
+    {
+        try {
+            return Product::withTrashed()
+                ->with('productImages', 'orderDetails')
+                ->whereHas('orderDetails', function ($query) use ($orderId) {
+                    return $query->where('order_id', $orderId);
+                })->get();
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+
+            return false;
+        }
+    }
 }

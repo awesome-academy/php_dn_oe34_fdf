@@ -5,3 +5,22 @@
 .error-messages {
     color: red;
 }
+
+.width-100px{
+    width: 100px;
+}
+.height-100px{
+    height: 100px;
+}
+.width-35{
+    width: 35%;
+}
+.width-60{
+    width: 60%;
+}
+.width-15{
+    width: 15%;
+}
+.width-5{
+    width: 5%;
+}
