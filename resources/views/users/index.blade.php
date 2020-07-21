@@ -34,13 +34,9 @@
             <div class="agileinfo-ads-display col-md-9">
                 <div class="wrapper">
                     <!-- first section (foods) -->
-                @component('users.components.food')
+                @component('users.components.product', ['products' => $products])
                 @endcomponent
-                <!-- //first section (foods) -->
-                    <!-- second section (drinks) -->
-                @component('users.components.drink')
-                @endcomponent
-                <!-- //second section (drinks) -->
+                <!-- //first section (products) -->
                 </div>
             </div>
             <!-- //product right -->

@@ -79,7 +79,7 @@ return [
     'create_new_category' => 'Create a new category',
     'category_list' => 'Categories List',
     'name' => 'Name',
-    'parent_id' => 'Parent ID',
+    'parent' => 'Parent',
     'id' => "ID",
     'none' => 'None',
     'create_new_product' => 'Create a new product',
@@ -104,4 +104,7 @@ return [
     'pending' => 'Pending',
     'paid' => 'Paid',
     'cancel' => 'Cancel',
+    'quick_view' => 'Quick View',
+    'single_page' => 'Single Page',
+    'add_cart' => 'Add to cart',
 ];

@@ -36,7 +36,6 @@
                                             </div>
                                             <div class="col-xs-9 col-md-9">
                                                 <select name="parent_id" id="" class="form-control">
-                                                    <option value="">{{trans('messages.none')}}</option>
                                                     @foreach($categories as $item)
                                                         <option value="{{$item->id}}">{{$item->name}}</option>
                                                     @endforeach

@@ -22,15 +22,12 @@
                                     <label for="name">{{trans('messages.name')}}</label>
                                 </div>
                                 <div class="col-6">
-                                    <input type="radio" name="search_key" id="parent" value="parent_id" {{request()->input('search_key') == 'parent_id' ? 'checked' : ''}}>
-                                    <label for="parent">{{trans('messages.parent_id')}}</label>
-                                </div>
-                                <div class="col-6">
-                                    <input type="radio" name="search_key" id="id" value="id" {{request()->input('search_key') == 'id' ? 'checked' : ''}}>
-                                    <label for="id">{{trans('messages.id')}}</label>
+                                    <input type="radio" name="search_key" id="parent" value="parent" {{request()->input('search_key') == 'parent' ? 'checked' : ''}}>
+                                    <label for="parent">{{trans('messages.parent')}}</label>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                     <div class="float-left ml-3">
                         <a href="{{route('category.create-form')}}" class="btn btn-info float-right mb-1">
@@ -48,17 +45,15 @@
                             <table class="table-striped table table-responsive-xl">
                                 <tr>
                                     <th>#</th>
-                                    <th>{{trans('messages.name')}}</th>
-                                    <th>{{trans('messages.id')}}</th>
-                                    <th>{{trans('messages.parent_id')}}</th>
+                                    <th class="width-60">{{trans('messages.name')}}</th>
+                                    <th>{{trans('messages.parent')}}</th>
                                     <th class="text-center">{{trans('messages.action')}}</th>
                                 </tr>
                                 @foreach($categories as $key => $item)
                                     <tr>
                                         <td>{{$key + $categories->firstItem()}}</td>
-                                        <td class="width-60">{{$item->name}}</td>
-                                        <td>{{$item->id}}</td>
-                                        <td>{{!empty($item->parent_id) ? $item->parent_id : 'N/A'}}</td>
+                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->parent_id === \App\Model\Category::$parents['Food'] ? trans('messages.food') : trans('messages.drink')}}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <a class="btn btn-warning" href="{{route('category.edit', $item->id)}}">{{trans('messages.edit')}}</a>
