@@ -56,7 +56,7 @@
                                 @foreach($categories as $key => $item)
                                     <tr>
                                         <td>{{$key + $categories->firstItem()}}</td>
-                                        <td width="70%">{{$item->name}}</td>
+                                        <td class="width-60">{{$item->name}}</td>
                                         <td>{{$item->id}}</td>
                                         <td>{{!empty($item->parent_id) ? $item->parent_id : 'N/A'}}</td>
                                         <td class="text-center">

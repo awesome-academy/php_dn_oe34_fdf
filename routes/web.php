@@ -64,5 +64,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/edit/{id}', 'ProductController@update')->name('product.update');
             Route::delete('/delete/{id}', 'ProductController@destroy')->name('product.delete');
         });
+
+        Route::group(['prefix' => 'order'], function () {
+            Route::get('/', 'OrderController@listOrders')->name('order.list');
+            Route::get('/detail/{id}', 'OrderController@showDetails')->name('order.detail');
+            Route::put('/update-status/{id}', 'OrderController@updateStatus')->name('order.update_status');
+        });
     });
 });

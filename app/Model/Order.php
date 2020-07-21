@@ -16,6 +16,18 @@ class Order extends Model
         'status',
     ];
 
+    public static $status = [
+        'Pending' => 0,
+        'Paid' => 1,
+        'Cancel' => 2,
+    ];
+
+    public static $colorStatus = [
+        'warning',
+        'success',
+        'danger',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -24,5 +36,26 @@ class Order extends Model
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function scopeSearch($query, $search, $searchKey)
+    {
+        if ($searchKey == 'status') {
+            $search = isset(self::$status[ucfirst($search)]) ? self::$status[ucfirst($search)] : '';
+
+            return $query->where($searchKey, 'like', "%$search%");
+        }
+
+        return $query->where($searchKey, 'like', "%$search%");
+    }
+
+    public function getNameStatusAttribute()
+    {
+        return implode('', array_keys(self::$status, $this->status));
+    }
+
+    public function getColorStatusAttribute()
+    {
+        return self::$colorStatus[$this->status];
     }
 }

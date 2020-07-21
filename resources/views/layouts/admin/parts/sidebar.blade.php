@@ -28,6 +28,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('category.list')}}" class="nav-link">
+                        <i class="fa fa-list"></i>
+                        <span>{{trans('messages.category_list')}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('product.list')}}" class="nav-link">
+                        <i class="fa fa-list"></i>
+                        <span>{{trans('messages.product_list')}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('order.list')}}" class="nav-link">
+                        <i class="fa fa-list"></i>
+                        <span>{{trans('messages.order_list')}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link btn btn-danger">
                         {{trans('messages.logout')}}
                     </a>
