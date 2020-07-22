@@ -1,6 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/carts/cart.js": "/js/carts/cart.js",
+    "/js/carts/get_products.js": "/js/carts/get_products.js",
+    "/js/carts/list.js": "/js/carts/list.js",
     "/js/categories/list.js": "/js/categories/list.js",
     "/js/products/list.js": "/js/products/list.js",
     "/js/users/list.js": "/js/users/list.js"

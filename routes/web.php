@@ -13,6 +13,8 @@
 
 Route::group(['namespace' => 'User'], function () {
     Route::get('/', 'HomeController@index')->name('homepage');
+    Route::get('/cart', 'HomeController@listCart')->name('list_cart');
+    Route::get('/product-cart', 'HomeController@showCart');
 });
 
 Route::group(['namespace' => 'Auth'], function () {

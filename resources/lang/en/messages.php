@@ -107,4 +107,8 @@ return [
     'quick_view' => 'Quick View',
     'single_page' => 'Single Page',
     'add_cart' => 'Add to cart',
+    'cart' => 'Cart',
+    'product' => 'Product',
+    'order' => 'Order',
+    'add_cart_message' => 'Add cart success.',
 ];
