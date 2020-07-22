@@ -109,4 +109,48 @@ class ProductService
 
         return $this->productRepository->updateProduct($id, $params, $avatarParams, $thumbnailParams);
     }
+
+    public function getCartProducts($params)
+    {
+        $products = Product::with('productImages')->get();
+
+        $cartProducts = $this->getProductAdditionAttribute($params, $products);
+
+        $totalPriceCart = $products->sum('total_price');
+
+        return [
+            'cart_products' => $cartProducts,
+            'total_price' => $totalPriceCart,
+        ];
+    }
+
+    public function getProductAdditionAttribute($params, $collection)
+    {
+        $cartProducts = [];
+
+        if (!empty($collection)) {
+            foreach ($params as $param) {
+                $product = $this->productRepository->findObject($collection, 'id', $param['product_id']);
+
+                if (empty($product)) {
+                    continue;
+                }
+
+                $avatar = $this->productRepository->findObject($product->productImages, 'image_type', ProductImage::$types['Avatar']);
+                $imagePath = '';
+
+                if (!empty($avatar)) {
+                    $imagePath = $avatar->image_path;
+                }
+
+                $product->quantity = $param['quantity'];
+                $product->image_path = $imagePath;
+                $product->total_price = $product->quantity * $product->price;
+
+                $cartProducts[] = $product;
+            }
+        }
+
+        return $cartProducts;
+    }
 }

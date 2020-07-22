@@ -20,7 +20,7 @@
                         <span class="item_price">${{number_format($item->price)}}</span>
                     </div>
                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                        <input type="submit" value="{{trans('messages.add_cart')}}" class="btn btn-cart button" data-product-id="{{$item->id}}">
+                        <input type="submit" value="{{trans('messages.add_cart')}}" data-message="{{trans('messages.add_cart_message')}}" class="btn btn-cart button" data-product-id="{{$item->id}}">
                     </div>
                 </div>
             </div>

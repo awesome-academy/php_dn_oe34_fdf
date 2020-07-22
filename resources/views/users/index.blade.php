@@ -44,3 +44,6 @@
     </div>
     <!-- //top products -->
 @endsection
+@section('footer_script')
+    <script src="{{mix('/js/carts/cart.js')}}"></script>
+@endsection

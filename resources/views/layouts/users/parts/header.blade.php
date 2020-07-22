@@ -3,7 +3,7 @@
         <!-- header-bot-->
         <div class="col-md-3 logo_agile">
             <h1>
-                <a href="#">
+                <a href="{{route('homepage')}}">
                     <span>F</span>oods
                     <span><i>&</i></span>
                     <span>D</span>rinks
@@ -11,7 +11,7 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="    col-md-9 header">
+        <div class="col-md-9 header">
             <!-- header lists -->
             <ul>
                 <li>
@@ -59,9 +59,12 @@
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <button class="w3view-cart" type="submit" name="submit" value="">
-                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
+                    <a href="{{route('list_cart')}}">
+                        <span class='badge badge-danger cart-count'>0</span>
+                        <button class="w3view-cart">
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <!-- //cart details -->
@@ -77,7 +80,7 @@
                 <div class="nav">
                     <ul class="nav">
                         <li class="active mr-5">
-                            <a class="nav-stylehead" href="#">{{trans('messages.homepage')}}</a>
+                            <a class="nav-stylehead" href="{{route('homepage')}}">{{trans('messages.homepage')}}</a>
                         </li>
                         <li class="mr-5">
                             <a class="nav-stylehead" href="#">{{trans('messages.shop')}}</a>

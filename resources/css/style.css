@@ -4,6 +4,28 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+.cart-count {
+    background: #525252;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: 33px;
+    position: absolute;
+}
+.img-item{
+    block-size: 200px;
+}
+.img-item-cart{
+    width: 100px;
+    height: 100px;
+}
+.cart-font{
+    font-size: 20px;
+}
+.cart-custom-quantity{
+    width: 5em;
+}
+
 html, body{
 	margin:0;
 	font-size: 100%;
