@@ -6,19 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Model\Category;
-use App\Repositories\BaseRepository;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     /**
-     * @var BaseRepository
+     * @var CategoryRepository
      */
     protected $repository;
 
     public function __construct()
     {
-        $this->repository = app('base_repository');
+        $this->repository = app(CategoryRepository::class);
     }
 
     public function listCategories(Request $request)
@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $search = $request->get('search', '');
         $searchKey = $request->get('search_key', '');
 
-        $query = Category::query();
+        $query = $this->repository->exceptParent(Category::query());
 
         $categories = $this->repository->listAll($query, $limits, $search, $searchKey);
 
@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->repository->exceptChild(Category::query())->get();
 
         return view('admin.categories.create', compact('categories'));
     }

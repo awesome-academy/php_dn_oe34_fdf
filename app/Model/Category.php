@@ -14,6 +14,11 @@ class Category extends Model
         'parent_id',
     ];
 
+    public static $parents = [
+        'Food' => 1,
+        'Drink' => 2,
+    ];
+
     public function products()
     {
         return $this->hasMany(Product::class);
@@ -21,6 +26,10 @@ class Category extends Model
 
     public function scopeSearch($query, $search, $searchKey)
     {
+        if ($searchKey === 'parent') {
+            return $query->where('parent_id', self::$parents[ucfirst($search)]);
+        }
+
         return $query->where($searchKey, 'like', "%$search%");
     }
 }

@@ -949,6 +949,10 @@ h3.heading-tittle {
     font-weight: 600;
     letter-spacing: 1px;
 }
+.img-item{
+    width: 100%;
+    block-size: 200px;
+}
 .men-thumb-item {
     text-align: center;
 }
