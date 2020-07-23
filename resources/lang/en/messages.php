@@ -111,4 +111,12 @@ return [
     'product' => 'Product',
     'order' => 'Order',
     'add_cart_message' => 'Add cart success.',
+    'user_information' => 'User Information',
+    'products' => 'Products',
+    'today' => 'Today',
+    'total_quantity' => 'Total Quantity',
+    'create_order' => 'Create Order',
+    'no_product_create' => 'Don\'t have products to create order',
+    'create_order_failed' => 'Something wrong when creating your order. Please try again!',
+    'create_order_success' => 'Your order have created successfully. Thank you!',
 ];

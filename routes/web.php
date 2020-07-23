@@ -73,4 +73,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update-status/{id}', 'OrderController@updateStatus')->name('order.update_status');
         });
     });
+
+    Route::group(['namespace' => 'User'], function () {
+        Route::get('/order', 'OrderController@showOrderList')->name('show.order');
+        Route::get('/order-product', 'OrderController@getOrderProducts');
+        Route::post('/create-order', 'OrderController@store');
+    });
 });

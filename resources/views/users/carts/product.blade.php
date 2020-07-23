@@ -18,7 +18,7 @@
 </tr>
 <tr>
     @auth
-        <td colspan="7"><a href="#" type="button" class="btn col-2 float-right container btn-primary">{{trans('messages.order')}}</a></td>
+        <td colspan="7"><a href="{{route('show.order')}}" type="button" class="btn col-2 float-right container btn-primary">{{trans('messages.order')}}</a></td>
     @else
         <td colspan="7"><a type="button" href="{{route('user.login-form')}}" class="btn col-2 float-right container btn-success">{{trans('messages.login')}}</a></td>
     @endauth

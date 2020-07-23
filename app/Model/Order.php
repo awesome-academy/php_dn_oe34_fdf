@@ -28,6 +28,10 @@ class Order extends Model
         'danger',
     ];
 
+    protected $attributes = [
+        'status' => 0,
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
